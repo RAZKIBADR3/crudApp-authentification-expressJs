@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title -->
+    <title><%= title %></title>
+    <!-- css -->
+    <link rel="stylesheet" href="/BS5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container p-3">
+        <h2 class="text-capitalize my-3"><%= title %></h2>
+        <p class="text-danger" style="position: absolute;top:20px;left:45%"><%= locals.msg %></p>
+        <div class="d-flex justify-content-between my-2">
+            <h4>Welcome <%= locals.username %></h4>
+            <div class="col-3 border d-flex justify-content-evenly">
+                <a href="/user/login" class="my-2 col-5 px-4 btn btn-dark text-capitalize">Login</a>
+                <a href="/user/logout" onclick="return confirm('do you really wanna log out')" class="my-2 col-5 px-4 btn btn-danger text-capitalize">Logout</a>
+            </div>
+        </div>
+        <a href="/product/create" class="my-2 px-2 btn btn-primary text-capitalize">add product</a>
+        <table class="table table-striped mt-2">
+            <thead class="bg-dark text-light">
+                <tr>
+                    <th>#</th>
+                    <th>picture</th>
+                    <th>title</th>
+                    <th>quantity</th>
+                    <th>price</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% products.map((product, i)=>{ %>
+                    <tr>
+                        <td><%= product.id %></td>
+                        <td>
+                            <img style="height:160px;" src=<%= 'img/'+product.img %> alt="product picture">
+                        </td>
+                        <td><%= product.title %></td>
+                        <td><%= product.qt %></td>
+                        <td><%= product.price %></td>
+                        <td>
+                            <a onclick="return confirm('do you really wanna delete this product ')" href=<%= '/product/destroy/'+product.id %> class="d-block col-8 my-2 btn btn-danger">Delete</a>
+                            <a href=<%= '/product/edit/'+product.id %> class="d-block col-8 my-2 btn btn-warning">Edit</a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title -->
+    <title><%= title %></title>
+    <!-- css -->
+    <link rel="stylesheet" href="/BS5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container p-3">
+        <h2 class="text-capitalize my-3"><%= title %></h2>
+        <p class="text-danger fw-5"><%= locals.msg  %></p>
+        <form method="post" action="/user/login" class="p-4 col-6 mx-auto mt-5" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+            <p class="text-muted my-2 fs-5">Login</p>
+            <div class="my-3 p-1">
+                <label class="text-capitalize">username</label>
+                <input type="text" name="username" class="form-control">
+            </div>
+
+            <div class="my-3 p-1">
+                <label class="text-capitalize">password</label>
+                <input type="password" name="password" class="form-control">
+            </div>
+
+            <div class="my-3 p-1 d-flex justify-content-end">
+                <input type="submit" class="col-4 btn btn-primary" value="Login">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

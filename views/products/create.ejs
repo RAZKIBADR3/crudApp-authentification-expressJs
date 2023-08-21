@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title -->
+    <title><%= title %></title>
+    <!-- css -->
+    <link rel="stylesheet" href="/BS5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container p-3">
+        <h2 class="text-capitalize my-3"><%= title %></h2>
+        <a href="/product" class="my-2 px-2 btn btn-primary text-capitalize">products</a>
+        
+        <form method="post" action="/product/store" class="p-3 col-6 mx-auto mt-2" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" enctype="multipart/form-data">
+            <div class="my-2">
+                <label class="text-capitalize">title</label>
+                <input type="text" name="title" class="form-control">
+            </div>
+
+            <div class="my-2">
+                <label class="text-capitalize">quanity</label>
+                <input type="number" name="qt" class="form-control">
+            </div>
+
+            <div class="my-2">
+                <label class="text-capitalize">price</label>
+                <input type="number" name="price" class="form-control">
+            </div>
+
+            <div class="my-2">
+                <label class="text-capitalize">product picture</label>
+                <input type="file" name="img" class="form-control">
+            </div>
+
+            <div class="my-3 d-flex justify-content-end">
+                <input type="submit" class="col-4 btn btn-outline-success" value="Add">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
